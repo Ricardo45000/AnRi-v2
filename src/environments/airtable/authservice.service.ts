@@ -70,16 +70,11 @@ export class AuthserviceService {
       map((response) => {
         const profilePictureUrl = response?.fields?.Image[0]?.url || null;
         const myLogo = response?.fields?.Logo[0]?.url || null;
-        if (profilePictureUrl && myLogo) {
-          localStorage.setItem('myProfilePicture', profilePictureUrl);
-          this.myProfilePicture = profilePictureUrl;
-          console.log(this.myProfilePicture);
-          localStorage.setItem('myLogo', myLogo);
-          this.myLogo = myLogo;
-          this.connected = true;
-        } else {
-          this.connected = false;
-        }
+        localStorage.setItem('myProfilePicture', profilePictureUrl);
+        this.myProfilePicture = profilePictureUrl;
+        localStorage.setItem('myLogo', myLogo);
+        this.myLogo = myLogo;
+        this.connected = true;
         return this.connected;
       })
     ).subscribe();
