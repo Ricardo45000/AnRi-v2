@@ -66,9 +66,10 @@ export class RegularTableComponent implements OnInit, AfterViewInit{
       });
       
      this.airtableService.getRecords().then((records) => {
+      
         if (records && records.length > 0) {
           this.dataTable = this.convertToDataTable(records);
-      
+          
           // Additional logic that needs to happen after data fetching and initialization
         } else {
           console.error('No record found.');

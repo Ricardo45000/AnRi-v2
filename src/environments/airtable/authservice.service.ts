@@ -68,8 +68,8 @@ export class AuthserviceService {
         return of(false); // Assuming 'of' is imported from 'rxjs'
       }),
       map((response) => {
-        const profilePictureUrl = response?.fields?.Image[0]?.url || null;
-        const myLogo = response?.fields?.Logo[0]?.url || null;
+        const profilePictureUrl = response?.Image[0]?.url || null;
+        const myLogo = response?.Logo[0]?.url || null;
         localStorage.setItem('myProfilePicture', profilePictureUrl);
         this.myProfilePicture = profilePictureUrl;
         localStorage.setItem('myLogo', myLogo);
