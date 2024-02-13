@@ -66,7 +66,7 @@ export class RegularTableComponent implements OnInit, AfterViewInit{
       });
       
      this.airtableService.getRecords().then((records) => {
-      
+
         if (records && records.length > 0) {
           this.dataTable = this.convertToDataTable(records);
           
@@ -92,90 +92,89 @@ export class RegularTableComponent implements OnInit, AfterViewInit{
 
   
   initDataTable(): Promise<void> {
-  
-    // Wrap the initialization logic in a Promise
-    return new Promise<void>((resolve) => {
-      const checkCondition = () => {
-        if (this.dataTable.dataRows.length > 0) {
-          // If the condition is met, proceed with DataTable initialization
-          this.dtInstance = $('#datatable').DataTable({
-            "pagingType": "full_numbers",
-            "lengthMenu": [
-              [10, 25, 50, -1],
-              [10, 25, 50, "All"]
-            ],
-            "order": [[this.dataTable.headerRow.indexOf('date'), 'desc']],
-            responsive: true,
-            language: {
-              search: "_INPUT_",
-              searchPlaceholder: "Search records",
-            },
-            initComplete: function () {
-              const api = this.api();
-  
-              // Create a new row below the header row for filter inputs
-              const filterRow = $(api.table().header()).closest('thead')[0].insertRow(-1);
-  
-              // Create an input element for each column and append it to the new row
-              api.columns().every(function (index) {
-                const column = this;
-                const cell = filterRow.insertCell(-1);
-                $(cell).addClass('header-filter-cell');
-  
-                if (column.header().textContent === 'rating' || column.header().textContent === 'category' ||
-                 column.header().textContent === 'note' || column.header().textContent === 'catégorie' ||
-                 column.header().textContent === 'kategorie' || column.header().textContent === 'bewertung') {
-                  const select = document.createElement('select');
-                  select.id = column.header().textContent.toLowerCase();
-                  const values = Array.from(new Set(api.column(index).data().toArray())).sort();
-  
-                  // Add an empty option for no filter
+  // Wrap the initialization logic in a Promise
+  return new Promise<void>((resolve) => {
+    const checkCondition = () => {
+      if (this.dataTable.dataRows.length > 0) {
+        // If the condition is met, proceed with DataTable initialization
+        this.dtInstance = $('#datatable').DataTable({
+          "pagingType": "full_numbers",
+          "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+          ],
+          "order": [[this.dataTable.headerRow.indexOf('date'), 'desc']],
+          responsive: true,
+          language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+          },
+          initComplete: function () {
+            const api = this.api();
+
+            // Create a new row below the header row for filter inputs
+            const filterRow = $(api.table().header()).closest('thead')[0].insertRow(-1);
+
+            // Create an input element for each column and append it to the new row
+            api.columns().every(function (index) {
+              const column = this;
+              const cell = filterRow.insertCell(-1);
+              $(cell).addClass('header-filter-cell');
+
+              if (column.header().textContent === 'rating' || column.header().textContent === 'category' ||
+               column.header().textContent === 'note' || column.header().textContent === 'catégorie' ||
+               column.header().textContent === 'kategorie' || column.header().textContent === 'bewertung') {
+                const select = document.createElement('select');
+                select.id = column.header().textContent.toLowerCase();
+                const values = Array.from(new Set(api.column(index).data().toArray())).sort();
+
+                // Add an empty option for no filter
+                const option = document.createElement('option');
+                option.text = 'All';
+                option.value = '';
+                select.add(option);
+
+                // Add options for each unique value in the column
+                values.forEach(value => {
                   const option = document.createElement('option');
-                  option.text = 'All';
-                  option.value = '';
+                  option.text = value as string;
+                  option.value = value as string;
                   select.add(option);
-  
-                  // Add options for each unique value in the column
-                  values.forEach(value => {
-                    const option = document.createElement('option');
-                    option.text = value as string; // Explicitly cast value to string
-                    option.value = value as string; // Explicitly cast value to string
-                    select.add(option);
-                  });
-  
-                  $(select).appendTo($(cell))
-                    .on('change', function () {
-                      const val = $.fn.dataTable.util.escapeRegex($(this).val());
-                      column.search(val ? `^${val}$` : '', true, false).draw();
-                    })
-                    .css('width', '100%');
-                } else {
-                  const input = document.createElement("input");
-                  $(input).appendTo($(cell))
-                    .on('keyup change', function () {
-                      column.search($(this).val()).draw();
-                    }).attr('placeholder', api.column(index).header().textContent)
-                    .css('width', '100%');
-                }
-              });
-  
-              // Add overflow style to make it scrollable
-              $('#datatable_wrapper').css('overflow', 'auto');
-  
-              // Resolve the Promise after DataTable initialization
-              resolve();
-            }
-          });
-        } else {
-          
-          setTimeout(checkCondition, 100);
-        }
-      };
-  
-      // Start checking the condition
-      checkCondition();
-    });
-  }
+                });
+
+                $(select).appendTo($(cell))
+                  .on('change', function () {
+                    const val = $.fn.dataTable.util.escapeRegex($(this).val());
+                    column.search(val ? `^${val}$` : '', true, false).draw();
+                  })
+                  .css('width', '100%');
+              } else {
+                const input = document.createElement("input");
+                $(input).appendTo($(cell))
+                  .on('keyup change', function () {
+                    column.search($(this).val()).draw();
+                  }).attr('placeholder', api.column(index).header().textContent)
+                  .css('width', '100%');
+              }
+            });
+
+            // Add overflow style to make it scrollable
+            $('#datatable_wrapper').css('overflow', 'auto');
+
+            // Resolve the Promise after DataTable initialization
+            resolve();
+          }
+        });
+      } else {
+        setTimeout(checkCondition, 100);
+      }
+    };
+
+    // Start checking the condition
+    checkCondition();
+  });
+}
+
   
 
 
