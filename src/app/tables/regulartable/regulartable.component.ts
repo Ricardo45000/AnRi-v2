@@ -61,9 +61,6 @@ export class RegularTableComponent implements OnInit, AfterViewInit{
       this.sharedService.filterRating$.subscribe((rating) => {
         this.filterByRating(rating);
       });
-      this.sharedService.filterCategory$.subscribe((category) => {
-        this.filterByCategory(category);
-      });
       
      this.airtableService.getRecords().then((records) => {
 
@@ -121,9 +118,9 @@ export class RegularTableComponent implements OnInit, AfterViewInit{
               const cell = filterRow.insertCell(-1);
               $(cell).addClass('header-filter-cell');
 
-              if (column.header().textContent === 'rating' || column.header().textContent === 'category' ||
-               column.header().textContent === 'note' || column.header().textContent === 'catégorie' ||
-               column.header().textContent === 'kategorie' || column.header().textContent === 'bewertung') {
+              if (column.header().textContent === 'rating' ||
+               column.header().textContent === 'note' ||
+               column.header().textContent === 'kategorie') {
                 const select = document.createElement('select');
                 select.id = column.header().textContent.toLowerCase();
                 const values = Array.from(new Set(api.column(index).data().toArray())).sort();

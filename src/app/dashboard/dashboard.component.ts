@@ -138,15 +138,5 @@ export class DashboardComponent implements OnInit {
     
   }
 
-  public filterCategory(category: string) {
-    this.router.navigate(['/tables/all']);
-    this.sharedService.sendFilterCategory(category);
-  }
-
-  public categoryToImprove() {
-    return this.dashboardService.categoryToImprove()
-  }
-
-
 
 }

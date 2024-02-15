@@ -99,26 +99,4 @@ export class DashboardService {
     return numberOfComments;
   }
 
-  public categoryToImprove(): string {
-    const categoryCounts: { [category: string]: number } = {};
-  
-    // Use map to transform each user record into its category
-    const categories = this.records.map(user => {
-      const lowercaseCategory = user.category.toLowerCase();
-      return lowercaseCategory.charAt(0).toUpperCase() + lowercaseCategory.slice(1);
-    }); // Convert to lowercase for case-insensitive comparison
-  
-    // Use reduce to count the occurrences for each category
-    categories.reduce((accumulator, category) => {
-      accumulator[category] = (accumulator[category] || 0) + 1;
-      return accumulator;
-    }, categoryCounts);
-  
-    // Find the category with the highest count
-    const [categoryToImprove] = Object.entries(categoryCounts)
-      .reduce((max, entry) => (entry[1] > max[1] ? entry : max), ['', -Infinity]);
-  
-    return categoryToImprove || "-";
-  }
-
 }
