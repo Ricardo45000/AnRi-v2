@@ -24,5 +24,18 @@
     "Week":"Week",
     "Day":"Day",
     "Month":"Month",
-    "Year":"Year"
+    "Year":"Year",
+    "Jan": "Jan",
+    "Feb": "Feb",
+    "Mar": "Mar",
+    "Apr": "Apr",
+    "May": "May",
+    "Jun": "Jun",
+    "Jul": "Jul",
+    "Aug": "Aug",
+    "Sep": "Sep",
+    "Oct": "Oct",
+    "Nov": "Nov",
+    "Dec": "Dec",
+    "Number of Reviews": "Number of Reviews"
 }

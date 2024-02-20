@@ -24,5 +24,18 @@
     "Week": "Semaine",
     "Day": "Jour",
     "Month": "Mois",
-    "Year": "Année"
+    "Year": "Année",
+    "Jan": "Jan",
+    "Feb": "Fev",
+    "Mar": "Mar",
+    "Apr": "Avr",
+    "May": "Mai",
+    "Jun": "Juin",
+    "Jul": "Juil",
+    "Aug": "Aout",
+    "Sep": "Sep",
+    "Oct": "Oct",
+    "Nov": "Nov",
+    "Dec": "Dec",
+    "Number of Reviews": "Nombre d'avis"
   }

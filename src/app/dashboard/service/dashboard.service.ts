@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import Chart from 'chart.js';
 import { AirtableService } from 'environments/airtable/airtable.service';
 
@@ -16,8 +17,19 @@ export class DashboardService {
   
   records: USERS[] = [];
   selectedLanguage = 'en';
+  labels: string[] = [];
+  label: string = null;
 
-  constructor(private airtableService: AirtableService) {}
+
+  constructor(private airtableService: AirtableService, private translate: TranslateService) {
+    
+  }
+
+  private updateLabels(): void {
+    this.label = this.translate.instant('Number of Reviews');
+    this.labels = this.translate.instant(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
+    console.log(this.label)
+  }
 
   public async getChartData(ctx: any): Promise<Chart.ChartData> {
     this.records = await this.airtableService.getRecords();
@@ -29,11 +41,13 @@ export class DashboardService {
     var gradientStroke = ctx.createLinearGradient(0, 20, 0, 300);
     gradientStroke.addColorStop(0, '#6bd098');
     gradientStroke.addColorStop(1, chartColor);
+    this.updateLabels();
+    
 
     const dataset = {
-      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      labels: Object.values(this.labels),
       datasets: [{
-        label: 'Number of Reviews',
+        label: this.label,
         borderColor: '#6bd098',
         backgroundColor: gradientStroke,
         pointRadius: 5,
@@ -43,6 +57,10 @@ export class DashboardService {
         data: this.countDatesForEachMonth(),
       }]
     };
+    // Subscribe to language changes
+    this.translate.onLangChange.subscribe(() => {
+      ctx.labels = this.translate.instant(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
+    });
 
     return dataset;
   }

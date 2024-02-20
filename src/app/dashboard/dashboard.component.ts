@@ -46,6 +46,11 @@ export class DashboardComponent implements OnInit {
     }else{
       this.router.navigate(['/pages/lock']);
     } 
+
+    // Subscribe to language changes
+    this.translate.onLangChange.subscribe(() => {
+      this.loadData();
+    });
   
   }
 
