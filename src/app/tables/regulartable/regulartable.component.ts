@@ -124,7 +124,7 @@ export class RegularTableComponent implements OnInit, AfterViewInit{
                 const cell = filterRow.insertCell(-1);
                 $(cell).addClass('header-filter-cell');
   
-                if (['rating', 'note', 'kategorie'].includes(column.header().textContent)) {
+                if (['rating', 'note', 'bewertung'].includes(column.header().textContent)) {
                   const select = document.createElement('select');
                   select.id = column.header().textContent.toLowerCase();
                   const values = Array.from(new Set(api.column(index).data().toArray())).sort();
@@ -191,15 +191,17 @@ public async filterByRating(rating: number): Promise<void> {
   if (api) {
     // Find the rating filter element using its id
     var ratingFilterSelect = null;
+    console.log(this.translate.currentLang)
     if(this.translate.currentLang == null || this.translate.currentLang == 'en' ){
       ratingFilterSelect = $(`#rating`);
-    }
-    if( this.translate.currentLang == 'fr' ){
-      ratingFilterSelect = $(`#note`);
     }
     if(this.translate.currentLang == 'de' ){
       ratingFilterSelect = $(`#bewertung`);
     }
+    if( this.translate.currentLang == 'fr' ){
+      ratingFilterSelect = $(`#note`);
+    }
+    
   
 
     // Check if the filter select element is found
