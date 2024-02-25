@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent }   from './app.component';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { FixedPluginModule } from './shared/fixedplugin/fixedplugin.module';
@@ -43,9 +43,7 @@ export function HttpLoaderFactory(http: HttpClient){
                 useFactory: HttpLoaderFactory,
                 deps: [HttpClient]
             }
-        }
-            
-            
+        }   
         )
         
     ],

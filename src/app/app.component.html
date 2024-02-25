@@ -1,1 +1,18 @@
 <router-outlet></router-outlet>
+<!-- The Modal -->
+<div class="modal fade" id="myModal" data-backdrop="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <div class="modal-body" id="myQrCode">
+          <img src={{this.myQrCode}} alt="Modal Image" class="img-fluid"/>
+        </div>
+  
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-success w-25 mr-10" data-dismiss="modal">OK</button>
+          <button type="button" class="btn btn-success w-25"(click)="printModalContent(); ">{{ "Print" | translate }}</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>

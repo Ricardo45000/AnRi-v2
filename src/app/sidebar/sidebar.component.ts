@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, AfterViewChecked, AfterContentInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthserviceService } from 'environments/airtable/authservice.service';
 
 //Metadata
@@ -8,8 +8,8 @@ export interface RouteInfo {
     type: string;
     collapse?: string;
     icontype: string;
-    // icon: string;
     children?: ChildrenItems[];
+    action?: string;
 }
 
 export interface ChildrenItems {
@@ -25,28 +25,29 @@ export const ROUTES: RouteInfo[] = [{
         title: 'Your Dashboard',
         type: 'link',
         icontype: 'nc-icon nc-bank',
-    },{
-    path: '/advanced',
-    title: 'Advanced',
-    type: 'link',
-    icontype: 'nc-icon nc-ruler-pencil',
-    },
-    {
-        path: '/tables/all',
-        title: 'All Details',
-        type: 'link',
-        collapse: 'tables',
-        icontype: 'nc-icon nc-single-copy-04',
-        children: [
-            {path: 'all', title: 'Regular Tables', ab:'RT'},
+        },
+        {
+            path: '/tables/all',
+            title: 'All Details',
+            type: 'link',
+            collapse: 'tables',
+            icontype: 'nc-icon nc-single-copy-04',
+            children: [
+                {path: 'all', title: 'Regular Tables', ab:'RT'},
         ]
-    },{
-        path: '/pages/lock',
-        title: 'Logout',
-        type: 'link',
-        icontype: 'nc-icon nc-lock-circle-open',
-
-    }
+        }
+        ,{
+            path: '/qrcode',
+            title: 'Your QR Code',
+            type: 'link',
+            icontype: 'fa-solid fa-qrcode',
+            action: 'openYourQrCodeModal',
+        },{
+            path: '/pages/lock',
+            title: 'Logout',
+            type: 'link',
+            icontype: 'nc-icon nc-lock-circle-open',
+        }
 ];
 
 @Component({
@@ -56,6 +57,7 @@ export const ROUTES: RouteInfo[] = [{
 
 export class SidebarComponent {
 
+
     
 
     public menuItems: any[];
@@ -63,7 +65,6 @@ export class SidebarComponent {
     public myProfilePicture;
     public myShop;
     public myLogo;
-    public myQrCode;
     
 
     constructor(private authService: AuthserviceService) {
@@ -71,7 +72,6 @@ export class SidebarComponent {
         this.myProfilePicture = this.authService.myProfilePicture;
         this.myShop = this.authService.myTable;
         this.myLogo = this.authService.myLogo;
-        this.myQrCode = this.authService.myQrCode;
     }
     
     isNotMobileMenu(){
@@ -83,8 +83,9 @@ export class SidebarComponent {
 
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem);
-    }
-    ngAfterViewInit(){
+    
     }
 
+    
+    
 }
