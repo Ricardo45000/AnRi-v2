@@ -38,7 +38,7 @@ export const ROUTES: RouteInfo[] = [{
         }
         ,{
             path: '/qrcode',
-            title: 'Your QR Code',
+            title: 'your qr code',
             type: 'link',
             icontype: 'fa-solid fa-qrcode',
             action: 'openYourQrCodeModal',

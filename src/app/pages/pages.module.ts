@@ -7,6 +7,7 @@ import { PagesRoutes } from './pages.routing';
 
 import { LockComponent } from './lock/lock.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { AmazonComponent } from './amazon/amazon.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { TranslateModule } from '@ngx-translate/core';
         
     ],
     declarations: [
-        LockComponent
+        LockComponent,
+        AmazonComponent,
     ]
 })
 
