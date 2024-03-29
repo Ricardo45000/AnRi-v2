@@ -18,6 +18,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 
+
 export function HttpLoaderFactory(http: HttpClient){
     return new TranslateHttpLoader(http);
 }
@@ -27,6 +28,7 @@ export function HttpLoaderFactory(http: HttpClient){
     imports:[
         NgxLoadingModule.forRoot({}),
         BrowserAnimationsModule,
+
         FormsModule,
         RouterModule.forRoot(AppRoutes,{
           useHash: true

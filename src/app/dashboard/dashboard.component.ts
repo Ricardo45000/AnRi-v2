@@ -37,11 +37,10 @@ export class DashboardComponent implements OnInit {
   public ngOnInit() {
     
     if (this.authService.checkConnection()){
-      this.isLoading = true;
+      
       this.initializeChart();
       this.loadData();
       this.initiateRegularTableComponent();
-      this.isLoading = false;
       
     }else{
       this.router.navigate(['/pages/lock']);

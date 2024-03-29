@@ -191,7 +191,6 @@ public async filterByRating(rating: number): Promise<void> {
   if (api) {
     // Find the rating filter element using its id
     var ratingFilterSelect = null;
-    console.log(this.translate.currentLang)
     if(this.translate.currentLang == null || this.translate.currentLang == 'en' ){
       ratingFilterSelect = $(`#rating`);
     }

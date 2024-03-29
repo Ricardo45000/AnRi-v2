@@ -35,6 +35,11 @@ export const ROUTES: RouteInfo[] = [{
             children: [
                 {path: 'all', title: 'Regular Tables', ab:'RT'},
         ]
+        },{
+            path: '/mycustomers',
+            title: 'My Customers',
+            type: 'link',
+            icontype: 'nc-icon nc-single-02',
         }
         ,{
             path: '/qrcode',

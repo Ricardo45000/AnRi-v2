@@ -65,15 +65,18 @@ export class AuthserviceService {
       catchError(error => {
         console.error('Error fetching profile picture:', error);
         this.connected = false;
-        return of(false); // Assuming 'of' is imported from 'rxjs'
+        return of(false); 
       }),
       map((response) => {
         const profilePictureUrl = response?.Image[0]?.url || null;
         const myLogo = response?.Logo[0]?.url || null;
+        const myQrCode = response.QrCode;
         localStorage.setItem('myProfilePicture', profilePictureUrl);
         this.myProfilePicture = profilePictureUrl;
         localStorage.setItem('myLogo', myLogo);
         this.myLogo = myLogo;
+        localStorage.setItem('qrcode', myQrCode);
+        this.myQrCode = myQrCode;
         this.connected = true;
         return this.connected;
       })
@@ -119,6 +122,40 @@ export class AuthserviceService {
   private verifyPassword(enteredPassword: string, storedHashedPassword: string): boolean {
     return bcrypt.compareSync(enteredPassword, storedHashedPassword);
   }
+
+  /** ---------------------------------------- AMAZON ------------------------------------------ */
+
+  signinwithamazon(username: string): Observable<boolean> {
+    this.id = username;
+    const url = 'https://tsy94v6k27.execute-api.eu-west-3.amazonaws.com/prod/connexionwithamazon';
+    const body = JSON.stringify({ username });
+    
+
+    return this.http.post<any>(url,body).pipe(
+      map((response) => {
+        const user = response;
+        this.connected = true;
+        this.myTable = user.fields.Table;
+        this.myProfilePicture = user.fields.Image[0].url;
+        this.myQrCode = user.fields.QrCode;
+        this.myName = user.fields.Name;
+        this.myLogo = user.fields.Logo[0].url;
+        
+        // Save other user data to localStorage
+        this.saveUserData();
+        return true;
+      
+      }),
+      catchError((error) => {
+        console.error('Error during sign-in:', error);
+        return of(false);
+      })
+    );
+    
+  }
+  
+
+  
 
 
 }

@@ -28,7 +28,6 @@ export class DashboardService {
   private updateLabels(): void {
     this.label = this.translate.instant('Number of Reviews');
     this.labels = this.translate.instant(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
-    console.log(this.label)
   }
 
   public async getChartData(ctx: any): Promise<Chart.ChartData> {

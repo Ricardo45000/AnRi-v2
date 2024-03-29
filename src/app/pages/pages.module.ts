@@ -8,20 +8,26 @@ import { PagesRoutes } from './pages.routing';
 import { LockComponent } from './lock/lock.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { AmazonComponent } from './amazon/amazon.component';
+import { Amplify } from 'aws-amplify';
+import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
+import awsconfig from 'aws-export';
 
+Amplify.configure(awsconfig);
 
 @NgModule({
     imports: [
         CommonModule,
         RouterModule.forChild(PagesRoutes),
         FormsModule,
-        TranslateModule
+        TranslateModule,
+        AmplifyAuthenticatorModule,
+        FormsModule
         
     ],
     declarations: [
         LockComponent,
         AmazonComponent,
-    ]
+    ] 
 })
 
 export class PagesModule {}

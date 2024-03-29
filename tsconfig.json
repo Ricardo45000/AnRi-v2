@@ -18,5 +18,9 @@
       "dom"
     ]
   },
-  "include": ["src/**/*.ts", ".env"]
+  "include": ["src/**/*.ts", ".env"],
+  "exclude": [
+    "node_modules",
+    "lib.dom.d.ts" // Exclude lib.dom.d.ts
+  ]
 }
