@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { TablesRoutes } from './tables.routing';
 import { RegularTableComponent } from './regulartable/regulartable.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { CustomerTableComponent } from './customertable/customertable.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
         TranslateModule,
     ],
     declarations: [
-        RegularTableComponent
+        RegularTableComponent,
+        CustomerTableComponent,
     ],
 })
 

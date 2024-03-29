@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, NgZone, AfterViewChecked, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ElementRef, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AppComponent } from 'app/app.component';

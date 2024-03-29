@@ -10,6 +10,8 @@ interface USERS {
   rating: number;
   comment: String;
   date: String;
+  name: String,
+  email: String
 }
 
 declare var $:any;

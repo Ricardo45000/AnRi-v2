@@ -9,6 +9,8 @@ interface AirtableRecord {
   category: string;
   comment: string;
   date: string;
+  name: String,
+  email: String
 }
 
 @Injectable({

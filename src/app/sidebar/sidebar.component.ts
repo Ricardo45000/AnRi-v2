@@ -27,19 +27,24 @@ export const ROUTES: RouteInfo[] = [{
         icontype: 'nc-icon nc-bank',
         },
         {
-            path: '/tables/all',
+            path: '/tables/ratings',
             title: 'All Details',
             type: 'link',
             collapse: 'tables',
             icontype: 'nc-icon nc-single-copy-04',
             children: [
-                {path: 'all', title: 'Regular Tables', ab:'RT'},
+                {path: 'ratings', title: 'Regular Tables', ab:'RT'},
         ]
-        },{
-            path: '/mycustomers',
-            title: 'My Customers',
+        },
+        {
+            path: '/tables/customers',
+            title: 'My customers',
             type: 'link',
+            collapse: 'tables',
             icontype: 'nc-icon nc-single-02',
+            children: [
+                {path: 'customers', title: 'Customer Tables', ab:'RT'},
+        ]
         }
         ,{
             path: '/qrcode',
