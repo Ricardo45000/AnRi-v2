@@ -1,1 +1,0 @@
-{"ast":null,"code":"const borderWidths = {\n  small: {\n    value: '1px'\n  },\n  medium: {\n    value: '2px'\n  },\n  large: {\n    value: '3px'\n  }\n};\nexport { borderWidths };","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

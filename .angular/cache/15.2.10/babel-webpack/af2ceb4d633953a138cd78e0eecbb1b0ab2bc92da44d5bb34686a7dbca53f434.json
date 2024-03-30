@@ -1,1 +1,0 @@
-{"ast":null,"code":"const getFederatedSignInState = target => ({\n  entry: ['sendUpdate', 'clearError'],\n  invoke: {\n    src: 'signInWithRedirect',\n    onDone: {\n      target\n    },\n    onError: {\n      actions: 'setRemoteError',\n      target\n    }\n  }\n});\nexport { getFederatedSignInState };","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
