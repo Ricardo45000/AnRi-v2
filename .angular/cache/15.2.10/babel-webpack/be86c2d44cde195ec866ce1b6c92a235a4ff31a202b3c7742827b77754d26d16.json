@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { RegularTableComponent } from './regulartable/regulartable.component';\nexport const TablesRoutes = [{\n  path: '',\n  children: [{\n    path: 'all',\n    component: RegularTableComponent\n  }]\n}];","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

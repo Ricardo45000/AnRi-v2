@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { DataStore, DataStoreClass, initSchema } from './datastore/datastore';\nexport { Predicates } from './predicates';\nexport * from './types';\n//# sourceMappingURL=index.js.map","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
