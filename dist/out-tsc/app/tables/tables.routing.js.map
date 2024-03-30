@@ -1,0 +1,1 @@
+{"version":3,"file":"tables.routing.js","sourceRoot":"","sources":["../../../../src/app/tables/tables.routing.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,qBAAqB,EAAE,MAAM,uCAAuC,CAAC;AAE9E,MAAM,CAAC,IAAM,YAAY,GAAW,CAAC;QAC7B,IAAI,EAAE,EAAE;QACR,QAAQ,EAAE,CAAC;gBACP,IAAI,EAAE,KAAK;gBACX,SAAS,EAAE,qBAAqB;aACnC,CAAC;KACL;CACJ,CAAC"}

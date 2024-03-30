@@ -1,0 +1,1 @@
+{"version":3,"file":"dashboard.routing.js","sourceRoot":"","sources":["../../../../src/app/dashboard/dashboard.routing.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,kBAAkB,EAAE,MAAM,uBAAuB,CAAC;AAE3D,MAAM,CAAC,IAAM,eAAe,GAAW,CAAC;QAEpC,IAAI,EAAE,EAAE;QACR,QAAQ,EAAE,CAAE;gBACV,IAAI,EAAE,WAAW;gBACjB,SAAS,EAAE,kBAAkB;aAC9B,CAAC;KACL,CAAC,CAAC"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"charts.routing.js","sourceRoot":"","sources":["../../../../src/app/charts/charts.routing.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,eAAe,EAAE,MAAM,oBAAoB,CAAC;AAErD,MAAM,CAAC,IAAM,YAAY,GAAW,CAAC;QACjC,IAAI,EAAE,EAAE;QACR,QAAQ,EAAE,CAAC;gBACP,IAAI,EAAE,EAAE;gBACR,SAAS,EAAE,eAAe;aAC7B,CAAC;KACL,CAAC,CAAC"}

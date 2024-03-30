@@ -1,0 +1,1 @@
+{"ast":null,"code":"const transforms = {\n  // TODO: make this more generic and cross-platform\n  slideX: {\n    small: {\n      value: 'translateX(0.5em)'\n    },\n    medium: {\n      value: 'translateX(1em)'\n    },\n    large: {\n      value: 'translateX(2em)'\n    }\n  }\n};\nexport { transforms };","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

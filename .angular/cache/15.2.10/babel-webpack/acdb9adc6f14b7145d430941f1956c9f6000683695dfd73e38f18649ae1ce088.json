@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { ConsoleLogger } from 'aws-amplify/utils';\nconst getLogger = category => new ConsoleLogger(`AmplifyUI:${category}`);\nexport { getLogger };","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
