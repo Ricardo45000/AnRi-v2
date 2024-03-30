@@ -1,1 +1,0 @@
-{"ast":null,"code":"const highlightmatch = {\n  highlighted: {\n    fontWeight: {\n      value: '{fontWeights.bold}'\n    }\n  }\n};\nexport { highlightmatch };","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

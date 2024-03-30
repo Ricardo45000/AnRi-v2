@@ -1,1 +1,0 @@
-{"ast":null,"code":"const icon = {\n  lineHeight: {\n    value: 1\n  },\n  height: {\n    value: '1em'\n  } // Should match height of parent container font-size\n};\n\nexport { icon };","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

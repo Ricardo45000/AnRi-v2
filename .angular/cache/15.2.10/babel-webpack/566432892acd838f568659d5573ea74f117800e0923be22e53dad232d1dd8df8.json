@@ -1,1 +1,0 @@
-{"ast":null,"code":"export { defaultAuthStrategy } from './defaultAuthStrategy';\nexport { multiAuthStrategy } from './multiAuthStrategy';\n//# sourceMappingURL=index.js.map","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

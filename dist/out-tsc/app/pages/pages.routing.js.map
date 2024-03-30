@@ -1,1 +1,0 @@
-{"version":3,"file":"pages.routing.js","sourceRoot":"","sources":["../../../../src/app/pages/pages.routing.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,aAAa,EAAE,MAAM,uBAAuB,CAAC;AAEtD,MAAM,CAAC,IAAM,WAAW,GAAW,CAAC;QAChC,IAAI,EAAE,EAAE;QACR,QAAQ,EAAE,CAAC;gBACP,IAAI,EAAE,MAAM;gBACZ,SAAS,EAAE,aAAa;aAC3B,CAAC;KACL,CAAC,CAAC"}
