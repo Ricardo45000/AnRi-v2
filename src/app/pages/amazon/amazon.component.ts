@@ -1,11 +1,11 @@
-import { Component, OnInit, ElementRef, NgZone } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { AppComponent } from 'app/app.component';
 import { AuthserviceService } from 'environments/airtable/authservice.service';
 import { Amplify } from 'aws-amplify';
-import awsExports from 'aws-export'
-
+import awsconfig from 'aws-export';
+import { Hub } from '@aws-amplify/core';
+import { signOut } from '@aws-amplify/auth';
 
 
 declare var $:any;
@@ -26,7 +26,24 @@ export class AmazonComponent implements OnInit{
     loading: boolean = false;
     selectedLanguage: any;
 
-
+    theSignIn = (username: string) => {   
+    
+        this.authService.signinwithamazon(username).subscribe((authenticated) => {
+            
+            if (authenticated) {
+              
+              this.router.navigate(['/dashboard']);
+              this.showNotification("top","center", "success", "Authentification done");
+              
+            } else {
+              this.showNotification("top","center", "warning", "Wrong combinaison. Try Again");
+            }
+            
+            this.loading = false;
+            
+          });
+    }
+    
 
     
 
@@ -34,22 +51,17 @@ export class AmazonComponent implements OnInit{
         private element : ElementRef, 
         private authService: AuthserviceService, 
         private router: Router,
-        private translate: TranslateService, 
-        private root: AppComponent,
-        private zone: NgZone,
+        private translate: TranslateService,
         ) {
         
         this.sidebarVisible = false;
         this.translate.setDefaultLang("en");
-        Amplify.configure(awsExports);
-        
-
+        Amplify.configure(awsconfig); 
     }
 
     
-
-
     
+
     
     
 
@@ -65,7 +77,7 @@ export class AmazonComponent implements OnInit{
 
 
     ngOnInit(){
-        this.authService.disconnect();
+        signOut();
         this.checkFullPageBackgroundImage();
 
         var body = document.getElementsByTagName('body')[0];
@@ -78,6 +90,15 @@ export class AmazonComponent implements OnInit{
             // after 1000 ms we add the class animated to the login/register card
             $('.card').removeClass('card-hidden');
         }, 700);
+
+
+        Hub.listen('auth', (data) => {
+            switch (data.payload.event) {
+                case 'signedIn':
+                    this.theSignIn(data.payload.data['signInDetails']['loginId']);
+                  break;
+              }
+          });
 
         
     }
@@ -102,25 +123,8 @@ export class AmazonComponent implements OnInit{
             body.classList.remove('nav-open');
         }
     }
-
-
-    async signIn(username: string){   
-        console.log(this.username);
-        this.authService.signinwithamazon(username).subscribe((authenticated) => {
-            
-            if (authenticated) {
-              
-              this.router.navigate(['/dashboard']);
-              this.showNotification("top","center", "success", "Authentification done");
-              
-            } else {
-              this.showNotification("top","center", "warning", "Wrong combinaison. Try Again");
-            }
-            
-            this.loading = false;
-            
-          });
-    }
+          
+    
 
    
     showNotification(from: string, align: string, type: string, message: string){

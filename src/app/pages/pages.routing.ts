@@ -5,11 +5,11 @@ import { AmazonComponent } from './amazon/amazon.component';
 export const PagesRoutes: Routes = [{
     path: '',
     children: [{
-        path: 'lock',
+        path: 'test',
         component: LockComponent
     },
     {
-        path: 'amazon',
+        path: 'lock',
         component: AmazonComponent
     }]
 }];

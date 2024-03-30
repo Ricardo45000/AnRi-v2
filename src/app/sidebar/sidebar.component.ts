@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { signOut } from '@aws-amplify/auth';
 import { AuthserviceService } from 'environments/airtable/authservice.service';
 
 //Metadata
@@ -17,6 +18,8 @@ export interface ChildrenItems {
     title: string;
     ab: string;
     type?: string;
+
+    
 }
 
 //Menu Items
@@ -57,6 +60,7 @@ export const ROUTES: RouteInfo[] = [{
             title: 'Logout',
             type: 'link',
             icontype: 'nc-icon nc-lock-circle-open',
+            action: 'onLogoutClick',
         }
 ];
 
@@ -93,7 +97,10 @@ export class SidebarComponent {
 
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem);
-    
+    }
+
+    onLogoutClick() {
+        signOut();
     }
 
     
