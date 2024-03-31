@@ -25,10 +25,9 @@ export class LockComponent implements OnInit{
 
     constructor(
         private element : ElementRef, 
-        private authService: AuthserviceService, 
-        private router: Router,
+        private authService: AuthserviceService,
         private translate: TranslateService, 
-        private root: AppComponent) {
+        ) {
     
         this.sidebarVisible = false;
         this.translate.setDefaultLang("en");
@@ -80,44 +79,5 @@ export class LockComponent implements OnInit{
         }
     }
 
-    signIn(){
-        this.loading = true;
-        this.authService.signIn(this.username, this.password).subscribe((authenticated) => {
-            
-            if (authenticated) {
-              // Successfully authenticated, navigate to the dashboard or perform other actions
-              
-              this.router.navigate(['/dashboard']);
-              this.showNotification("top","center", "success", "Authentification done");
-              
-            } else {
-              // Authentication failed, show an error message or take appropriate action
-              this.showNotification("top","center", "warning", "Wrong combinaison. Try Again");
-            }
-            
-            this.loading = false;
-            
-          });
-    }
 
-    showNotification(from: string, align: string, type: string, message: string){
-
-    	$.notify({
-        	icon: "ti-gift",
-        	message: message
-        },{
-            type: type,
-            timer: 1,
-            placement: {
-                from: from,
-                align: align
-            },
-            template: '<div data-notify="container" class="col-11 col-md-4 alert alert-{0} alert-with-icon" role="alert"><button type="button" aria-hidden="true" class="close" data-notify="dismiss"><i class="nc-icon nc-simple-remove"></i></button><span data-notify="icon" class="nc-icon nc-bell-55"></span> <span data-notify="title">{1}</span> <span data-notify="message">{2}</span><div class="progress" data-notify="progressbar"><div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div></div><a href="{3}" target="{4}" data-notify="url"></a></div>'
-        });
-	}
-
-    switchLanguage(language: string){
-        this.selectedLanguage = language;
-        this.root.switchLanguage(language);
-    }
 }

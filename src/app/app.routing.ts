@@ -12,7 +12,7 @@ export const AppRoutes: Routes = [{
         component: AdminLayoutComponent,
         children: [
         { 
-            path: '',
+            path: 'dashboard',
             loadChildren: () => import('./dashboard/dashboard.module').then(x => x.DashboardModule)
         },{
             path: 'tables',
@@ -25,7 +25,7 @@ export const AppRoutes: Routes = [{
             path: '',
             component: AuthLayoutComponent,
             children: [{
-                path: 'pages',
+                path: 'welcome',
                 loadChildren:() => import( './pages/pages.module').then(x=>x.PagesModule)
             }]
         }
