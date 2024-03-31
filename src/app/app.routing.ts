@@ -25,7 +25,7 @@ export const AppRoutes: Routes = [{
             path: '',
             component: AuthLayoutComponent,
             children: [{
-                path: 'pages',
+                path: 'home',
                 loadChildren:() => import( './pages/pages.module').then(x=>x.PagesModule)
             }]
         }

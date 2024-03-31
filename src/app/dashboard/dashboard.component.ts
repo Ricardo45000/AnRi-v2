@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit {
       this.initiateRegularTableComponent();
       
     }else{
-      this.router.navigate(['/pages/lock']);
+      this.router.navigate(['/home/login']);
     } 
 
     // Subscribe to language changes

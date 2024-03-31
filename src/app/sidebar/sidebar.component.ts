@@ -56,7 +56,7 @@ export const ROUTES: RouteInfo[] = [{
             icontype: 'fa-solid fa-qrcode',
             action: 'openYourQrCodeModal',
         },{
-            path: '/pages/lock',
+            path: '/home/login',
             title: 'Logout',
             type: 'link',
             icontype: 'nc-icon nc-lock-circle-open',
