@@ -29,4 +29,4 @@ export const AppRoutes: Routes = [{
                 loadChildren:() => import( './pages/pages.module').then(x=>x.PagesModule)
             }]
         }
-];
+]; 
