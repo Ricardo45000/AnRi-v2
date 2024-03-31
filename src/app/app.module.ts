@@ -30,9 +30,7 @@ export function HttpLoaderFactory(http: HttpClient){
         BrowserAnimationsModule,
 
         FormsModule,
-        RouterModule.forRoot(AppRoutes,{
-          useHash: true
-        }),
+        RouterModule.forRoot(AppRoutes),
         NgbModule,
         SidebarModule,
         NavbarModule,
