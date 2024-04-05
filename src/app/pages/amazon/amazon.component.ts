@@ -26,6 +26,23 @@ export class AmazonComponent implements OnInit{
     loading: boolean = false;
     selectedLanguage: any;
 
+    public formFields = {
+        signUp: {
+        username: {
+            order:1
+        },
+        email: {
+            order:2
+        },
+        password: {
+            order: 3
+        },
+        confirm_password: {
+            order: 4
+        }
+        },
+      }
+
     theSignIn = (username: string) => {   
     
         this.authService.signinwithamazon(username).subscribe((authenticated) => {
@@ -57,6 +74,7 @@ export class AmazonComponent implements OnInit{
         this.sidebarVisible = false;
         this.translate.setDefaultLang("en");
         Amplify.configure(awsconfig); 
+        
     }
 
     
