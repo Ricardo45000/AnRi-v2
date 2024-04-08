@@ -27,12 +27,13 @@ export class AmazonComponent implements OnInit{
     selectedLanguage: any;
 
     public formFields = {
+    
         signUp: {
         username: {
-            order:1
+            order:2
         },
         email: {
-            order:2
+            order:1
         },
         password: {
             order: 3
@@ -77,10 +78,6 @@ export class AmazonComponent implements OnInit{
         
     }
 
-    
-    
-
-    
     
 
     checkFullPageBackgroundImage(){

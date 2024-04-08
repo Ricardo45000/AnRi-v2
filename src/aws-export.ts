@@ -6,7 +6,6 @@ const awsconfig = {
     oauth: {
       domain: 'localhost:4200',    // Add your own domain-url
       scope: [
-        'username',
         'email',
       ],
       redirectSignIn: 'https://www.omnisensa.com/',    // Add your own redirect sign-in url

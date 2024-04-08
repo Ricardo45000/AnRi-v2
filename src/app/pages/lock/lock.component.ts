@@ -1,22 +1,20 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { AppComponent } from 'app/app.component';
-import { AuthserviceService } from 'environments/airtable/authservice.service';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
-declare var $:any;
 
 @Component({
     selector: 'lock-cmp',
-    templateUrl: './lock.component.html'
+    templateUrl: './lock.component.html',
 })
 
 export class LockComponent{
+    @ViewChild('mainContent', { static: true }) targetSection: ElementRef;
 
-
-    constructor(
-       
-        ) {
+  scrollToSection(sectionId: string) {
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+    
     
 }
