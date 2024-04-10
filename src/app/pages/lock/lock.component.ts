@@ -4,6 +4,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 @Component({
     selector: 'lock-cmp',
     templateUrl: './lock.component.html',
+    styleUrls: ['./lock.component.css']
 })
 
 export class LockComponent{
