@@ -5,7 +5,7 @@ import { AuthserviceService } from 'environments/airtable/authservice.service';
 import { Amplify } from 'aws-amplify';
 import awsconfig from 'aws-export';
 import { Hub } from '@aws-amplify/core';
-import { signOut } from '@aws-amplify/auth';
+import { signIn, signOut } from '@aws-amplify/auth';
 
 
 declare var $:any;
@@ -44,7 +44,8 @@ export class AmazonComponent implements OnInit{
         },
       }
 
-    theSignIn = (username: string) => {   
+    theSignIn = (username: string) => {  
+        
     
         this.authService.signinwithamazon(username).subscribe((authenticated) => {
             
@@ -60,6 +61,33 @@ export class AmazonComponent implements OnInit{
             this.loading = false;
             
           });
+    }
+
+    ngOnInit(){
+        signOut();
+        this.checkFullPageBackgroundImage();
+
+        var body = document.getElementsByTagName('body')[0];
+        body.classList.add('lock-page');
+
+        var navbar : HTMLElement = this.element.nativeElement;
+        this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
+
+        setTimeout(function(){
+            // after 1000 ms we add the class animated to the login/register card
+            $('.card').removeClass('card-hidden');
+        }, 700);
+
+ 
+        Hub.listen('auth', (data) => {
+            switch (data.payload.event) {
+                case 'signedIn':
+                    this.theSignIn(data.payload.data['signInDetails']['loginId']);
+                  break;
+              }
+          });
+
+        
     }
     
 
@@ -91,32 +119,7 @@ export class AmazonComponent implements OnInit{
     };
 
 
-    ngOnInit(){
-        signOut();
-        this.checkFullPageBackgroundImage();
-
-        var body = document.getElementsByTagName('body')[0];
-        body.classList.add('lock-page');
-
-        var navbar : HTMLElement = this.element.nativeElement;
-        this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
-
-        setTimeout(function(){
-            // after 1000 ms we add the class animated to the login/register card
-            $('.card').removeClass('card-hidden');
-        }, 700);
-
- 
-        Hub.listen('auth', (data) => {
-            switch (data.payload.event) {
-                case 'signedIn':
-                    this.theSignIn(data.payload.data['signInDetails']['loginId']);
-                  break;
-              }
-          });
-
-        
-    }
+    
 
     ngOnDestroy(){
         var body = document.getElementsByTagName('body')[0];

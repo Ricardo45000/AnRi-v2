@@ -1,4 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { AppComponent } from 'app/app.component';
 
 
 @Component({
@@ -8,6 +10,11 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 })
 
 export class LockComponent{
+    selectedLanguage: string;
+
+    constructor(public translate: TranslateService, private root: AppComponent){
+
+    }
     @ViewChild('mainContent', { static: true }) targetSection: ElementRef;
 
   scrollToSection(sectionId: string) {
@@ -16,6 +23,11 @@ export class LockComponent{
       targetSection.scrollIntoView({ behavior: 'smooth' });
     }
   }
+
+  switchLanguage(){
+    const e = (document.getElementById('mySelect') as HTMLInputElement).value
+    this.root.switchLanguage(e);
+}
     
     
 }

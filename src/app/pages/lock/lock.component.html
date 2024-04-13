@@ -4,10 +4,10 @@
 
 		<!-- Wrapper -->
 			<div id="wrapper">
-                <div style="float: right; width: 90px; margin-top: 4%; margin-left: 2%;"><select id="language-selector" >
+                <div style="float: right; width: 90px; margin-top: 4%; margin-left: 2%;"><select id="mySelect" (change)="switchLanguage()">
                     <option value="en">🇺🇸</option>
-                    <option value="fr">🇫🇷</option>
                     <option value="de">🇩🇪</option>
+                    <option value="fr">🇫🇷</option>
                   </select></div>
                 
                 
@@ -17,18 +17,17 @@
 					<header id="header" class="alt">
                         
 						<span class="logo"><img src="./assets/css/images/meinelogo.png" alt="Logo" style="width: 50%;" /></span>
-						<h2>Take control of your ratings</h2>
+						<h2>{{'Take control of your ratings' | translate}}</h2>
                         <a href="/home/login"><img src="./assets/css/images/lock-solid.svg" style="width: 20px; margin-top: 5%;"/></a>
 					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
-							<li><a (click)="scrollToSection('improve')" class="active">Improve</a></li>
-							<li><a (click)="scrollToSection('control')">Control</a></li>
-							<li><a (click)="scrollToSection('customers')">Our customers</a></li>
-							<li><a (click)="scrollToSection('aboutus')">About us</a></li>
-                            <li><a href="/home/login">Login</a></li>
+							<li><a (click)="scrollToSection('improve')" class="active">{{'Improve' | translate}}</a></li>
+							<li><a (click)="scrollToSection('control')">{{'Control' | translate}}</a></li>
+							<li><a (click)="scrollToSection('customers')">{{'Our customers' | translate}}</a></li>
+							<li><a (click)="scrollToSection('aboutus')">{{'About us' | translate}}</a></li>
 						</ul>
 					</nav>
 
@@ -40,11 +39,11 @@
 								<div class="spotlight">
 									<div class="content">
 										<header class="major">
-											<h2>Improve your Google ratings</h2>
+											<h2>{{'Improve your Google ratings' | translate}}</h2>
 										</header>
-										<p>Increase your value-creating Google reviews. Win more customers with positive reviews and get direct feedback from your customers. Omnisensa filters your reviews before it's too late.</p>
+										<p>{{'Increase your value-creating Google reviews. Win more customers with positive reviews and get direct feedback from your customers. Omnisensa filters your reviews before it\'s too late.' | translate}}</p>
 										<ul class="actions">
-											<li><a href="/home/login" class="button">Try it</a></li>
+											<li><a href="/home/login" class="button">{{'Try it' | translate}}</a></li>
 										</ul>
 									</div>
 									<span class="image"><img src="./assets/css/images/pic01.png" alt="" /></span>
@@ -54,20 +53,20 @@
 						<!-- First Section -->
 							<section id="control" class="main special">
 								<header class="major">
-									<h2>Products & Service</h2>
+									<h2>{{'Products & Service' | translate}}</h2>
 								</header>
 								<ul class="features">
 									<li>
 										<span class="icon solid major style1 fa-code"></span>
 										<h3><b>Omnisensa</b></h3>
-                                        <h4><u>Your feedback IT solution</u></h4>
-										<p>Filter and boost your Google reviews to attract more customers.</p>
+                                        <h4><u>{{'Your feedback IT solution' | translate}}</u></h4>
+										<p>{{'Filter and boost your Google reviews to attract more customers.' | translate}}</p>
 									</li>
 									<li>
 										<span class="icon major style3 fa-copy"></span>
 										<h3><b>Feedback management</b></h3>
-                                        <h4><u>Your Feedback Management Team</u></h4>
-										<p>For more customer loyalty, manage your public reviews on all platforms.</p>
+                                        <h4><u>{{'Your Feedback Management Team' | translate}}</u></h4>
+										<p>{{'For more customer loyalty, manage your public reviews on all platforms.' | translate}}</p>
 									</li>
 								</ul>
 								
@@ -76,12 +75,12 @@
 						<!-- Second Section -->
 							<section id="customers" class="main special">
 								<header class="major">
-									<h2>What our customers say about us</h2>
+									<h2>{{'What our customers say about us' | translate}}</h2>
 								</header>
 								<ul class="features">
 									<li>
 										<span><img src="./assets/css/images/mabe.png" alt="mabe" style="width: 50%;" /></span>
-										<h3>Since implementing Omnisensa, we have received significantly more Google reviews, which has helped attract new customers to our café. What I appreciate most about working with Omnisensa was their sincere commitment to customizing the solution to our concept!
+										<h3>{{'Since implementing Omnisensa, we have received significantly more Google reviews, which has helped attract new customers to our café. What I appreciate most about working with Omnisensa was their sincere commitment to customizing the solution to our concept!' | translate}}
                                             </h3>
                                             <footer class="major">
                                                 Eren<br/>Cafe MaBe
@@ -89,7 +88,7 @@
 									</li>
 									<li>
 										<span><img src="./assets/css/images/kono.png" alt="kono" style="width: 50%;" /></span>
-										<h3>With Omnisensa, we were finally able to offer our guests a platform to give personal feedback. Thus, we continued to optimize the experience and satisfaction for our guests. Omnisensa not only customized the solution to my wishes, but also gave us honest advice on potential improvements.
+										<h3>{{'With Omnisensa, we were finally able to offer our guests a platform to give personal feedback. Thus, we continued to optimize the experience and satisfaction for our guests. Omnisensa not only customized the solution to my wishes, but also gave us honest advice on potential improvements.' | translate}}
                                             </h3>
                                             <footer class="major">
                                                 Stevan Hoang<br/>Korean Steakhouse
@@ -102,8 +101,8 @@
 						<!-- Get Started -->
 							<section id="aboutus" class="main special">
 								<header class="major">
-									<h2>A little bit about us</h2>
-									<p>We strive for "Improvement by Connecting" connection. Our mission is to improve our customers' business by providing them with direct feedback from their own customers.</p>
+									<h2>{{'A little bit about us' | translate}}</h2>
+									<p>{{'We strive for "Improvement by Connecting" connection. Our mission is to improve our customers\' business by providing them with direct feedback from their own customers.' | translate}}</p>
 								</header>
                                 <ul class="features">
 									<li>
@@ -133,9 +132,9 @@
 						<section>
 							<h2>Omnisensa</h2>
 							<dl class="alt">
-								<dt>Address</dt>
+								<dt>{{'Address' | translate}}</dt>
 								<dd>Munich</dd>
-								<dt>Phone</dt>
+								<dt>{{'Phone' | translate}}</dt>
 								<dd><a href="tel:+49 176 56713005">+49 176 56713005</a></dd>
 								<dt>Email</dt>
 								<dd><a href="mailto:omnisensa@gmail.com">omnisensa@gmail.com</a></dd>

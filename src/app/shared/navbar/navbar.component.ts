@@ -19,7 +19,6 @@ var misc:any ={
 export class NavbarComponent implements OnInit{
     private listTitles: any[];
     location: Location;
-    private nativeElement: Node;
     private toggleButton;
     private sidebarVisible: boolean;
     private _router: Subscription;
@@ -28,9 +27,8 @@ export class NavbarComponent implements OnInit{
     @ViewChild("navbar-cmp", {static: false}) button;
     selectedLanguage: any;
 
-    constructor(location:Location, private renderer : Renderer2, private element : ElementRef, private router: Router, private root: AppComponent) {
+    constructor(location:Location, private element : ElementRef, private router: Router, private root: AppComponent) {
         this.location = location;
-        this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
     }
 
