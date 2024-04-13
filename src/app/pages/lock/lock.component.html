@@ -4,11 +4,13 @@
 
 		<!-- Wrapper -->
 			<div id="wrapper">
-                <div style="float: right; width: 90px; margin-top: 4%; margin-left: 2%;"><select id="mySelect" (change)="switchLanguage()">
-                    <option value="en">🇺🇸</option>
-                    <option value="de">🇩🇪</option>
-                    <option value="fr">🇫🇷</option>
-                  </select></div>
+                <div style="float: right; width: 90px; margin-top: 4%; margin-left: 2%;">
+                    <select id="mySelect" (change)="switchLanguage()" [(ngModel)]="selectedLanguage">
+                        <option value="en">🇺🇸</option>
+                        <option value="de" [selected]="selectedLanguage === 'de'">🇩🇪</option>
+                        <option value="fr" [selected]="selectedLanguage === 'fr'">🇫🇷</option>
+                      </select>
+                </div>
                 
                 
                 
@@ -33,7 +35,6 @@
 
 				<!-- Main -->
 					<div id="main" #mainContent>
-
 						<!-- Introduction -->
 							<section id="improve" class="main">
 								<div class="spotlight">
@@ -59,13 +60,13 @@
 									<li>
 										<span class="icon solid major style1 fa-code"></span>
 										<h3><b>Omnisensa</b></h3>
-                                        <h4><u>{{'Your feedback IT solution' | translate}}</u></h4>
+                                        <h5><u>{{'Your feedback IT solution' | translate}}</u></h5>
 										<p>{{'Filter and boost your Google reviews to attract more customers.' | translate}}</p>
 									</li>
 									<li>
 										<span class="icon major style3 fa-copy"></span>
 										<h3><b>Feedback management</b></h3>
-                                        <h4><u>{{'Your Feedback Management Team' | translate}}</u></h4>
+                                        <h5><u>{{'Your Feedback Management Team' | translate}}</u></h5>
 										<p>{{'For more customer loyalty, manage your public reviews on all platforms.' | translate}}</p>
 									</li>
 								</ul>
@@ -79,20 +80,26 @@
 								</header>
 								<ul class="features">
 									<li>
-										<span><img src="./assets/css/images/mabe.png" alt="mabe" style="width: 50%;" /></span>
-										<h3>{{'Since implementing Omnisensa, we have received significantly more Google reviews, which has helped attract new customers to our café. What I appreciate most about working with Omnisensa was their sincere commitment to customizing the solution to our concept!' | translate}}
-                                            </h3>
-                                            <footer class="major">
+                                        <div style="height: 100%;">
+                                            <img src="./assets/css/images/mabe.png" alt="mabe" style="height: 20%;" />
+                                            <h3 style="height: 50%; display: flex; align-items: center; justify-content: center;">{{'Since implementing Omnisensa, we have received significantly more Google reviews, which has helped attract new customers to our café. What I appreciate most about working with Omnisensa was their sincere commitment to customizing the solution to our concept!' | translate}}
+                                                </h3>
+                                            <footer class="major" style="height: 10%;">
                                                 Eren<br/>Cafe MaBe
                                             </footer>
+                                        </div>
+										
 									</li>
 									<li>
-										<span><img src="./assets/css/images/kono.png" alt="kono" style="width: 50%;" /></span>
-										<h3>{{'With Omnisensa, we were finally able to offer our guests a platform to give personal feedback. Thus, we continued to optimize the experience and satisfaction for our guests. Omnisensa not only customized the solution to my wishes, but also gave us honest advice on potential improvements.' | translate}}
-                                            </h3>
-                                            <footer class="major">
+                                        <div style="height: 100%;">
+                                            <img src="./assets/css/images/kono.png" alt="kono" style="height: 20%;" />
+                                            <h3 style="height: 50%; display: flex; align-items: center; justify-content: center;">{{'With Omnisensa, we were finally able to offer our guests a platform to give personal feedback. Thus, we continued to optimize the experience and satisfaction for our guests. Omnisensa not only customized the solution to my wishes, but also gave us honest advice on potential improvements.' | translate}}
+                                                </h3>
+                                            <footer class="major" style="height: 10%;">
                                                 Stevan Hoang<br/>Korean Steakhouse
                                             </footer>
+                                        </div>
+										
 									</li>
 								</ul>
                                 

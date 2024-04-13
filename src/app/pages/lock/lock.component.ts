@@ -13,7 +13,7 @@ export class LockComponent{
     selectedLanguage: string;
 
     constructor(public translate: TranslateService, private root: AppComponent){
-
+      this.selectedLanguage = translate.currentLang;
     }
     @ViewChild('mainContent', { static: true }) targetSection: ElementRef;
 
@@ -26,6 +26,7 @@ export class LockComponent{
 
   switchLanguage(){
     const e = (document.getElementById('mySelect') as HTMLInputElement).value
+    this.selectedLanguage = e;
     this.root.switchLanguage(e);
 }
     
