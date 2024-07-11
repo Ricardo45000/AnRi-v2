@@ -55,7 +55,7 @@ export class AmazonComponent implements OnInit{
               this.showNotification("top","center", "success", "Authentification done");
               
             } else {
-              this.showNotification("top","center", "warning", "Wrong combinaison. Try Again");
+              this.showNotification("top","center", "warning", "There's something wrong. Try Again");
             }
             
             this.loading = false;

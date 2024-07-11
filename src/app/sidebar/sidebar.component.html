@@ -1,5 +1,3 @@
-
-
 <div class="logo">
 	<a class="simple-text logo-mini">
         <div class="logo-image-small">
@@ -7,9 +5,21 @@
         </div>
 	</a>
 
-	<a class="simple-text text-capitalize logo-normal text-center">
-		{{this.myShop}}
-	</a>
+  <a class="simple-text text-capitalize logo-normal text-center">
+    <select #selectElement (change)="handleShopChange($event.target.value)" [(ngModel)]="selectedShop" style="border: 1px solid transparent;
+  border-radius: 4px; background-color: transparent; padding-right: 20px; color: white;">
+      <ng-template #loading>
+        <option disabled>Loading shops...</option>
+      </ng-template>
+    
+      <option *ngFor="let shop of shopList" [value]="shop">
+        {{ shop }}
+      </option>
+    </select>
+  </a>
+	
+
+  
 </div>
 
 

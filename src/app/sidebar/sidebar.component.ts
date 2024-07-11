@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { signOut } from '@aws-amplify/auth';
 import { AuthserviceService } from 'environments/airtable/authservice.service';
 
@@ -77,16 +77,22 @@ export class SidebarComponent {
     public menuItems: any[];
     public myName;
     public myProfilePicture;
-    public myShop;
+    public shopList: any[] = [];
     public myLogo;
+selectedShop: any;
+    selectElement: any;
     
 
     constructor(private authService: AuthserviceService) {
-        this.myName = this.authService.myName;
-        this.myProfilePicture = this.authService.myProfilePicture;
-        this.myShop = this.authService.myTable;
-        this.myLogo = this.authService.myLogo;
+        
+        
     }
+
+    handleShopChange(selectedShop: string){
+        this.authService.changeRestaurant(selectedShop);
+        window.location.reload();
+    }
+        
     
     isNotMobileMenu(){
         if( window.outerWidth > 991){
@@ -96,7 +102,17 @@ export class SidebarComponent {
     }
 
     ngOnInit() {
+        this.myName = this.authService.myName;
+        this.myProfilePicture = this.authService.myProfilePicture;
+        this.myLogo = this.authService.myLogo;
+        this.selectedShop = this.authService.myTable;
+        this.shopList = this.authService.listOfShops.split(';');
         this.menuItems = ROUTES.filter(menuItem => menuItem);
+        
+    }
+
+    ngAfterViewInit() {
+        
     }
 
     onLogoutClick() {

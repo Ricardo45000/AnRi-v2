@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { LockComponent } from './lock/lock.component';
 import { AmazonComponent } from './amazon/amazon.component';
+import { LockComponent } from './lock/lock.component';
 
 export const PagesRoutes: Routes = [{
     path: '',

@@ -1,163 +1,161 @@
 
-	
-	<body class="">
+<body class="">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
-                <div style="float: right; width: 90px; margin-top: 4%; margin-left: 2%;">
-                    <select id="mySelect" (change)="switchLanguage()" [(ngModel)]="selectedLanguage">
-                        <option value="en">🇺🇸</option>
-                        <option value="de" [selected]="selectedLanguage === 'de'">🇩🇪</option>
-                        <option value="fr" [selected]="selectedLanguage === 'fr'">🇫🇷</option>
-                      </select>
-                </div>
-                
-                
-                
-				<!-- Header -->
-					<header id="header" class="alt">
-            
-						<span class="logo" style="opacity: 0;"><img src="./assets/css/images/meinelogo.png" alt="Logo" style="width: 50%;" /></span>
-						<h4 class="logo" style="opacity: 0;"><b>{{'Take control of your ratings' | translate}}</b></h4>
-                        <a class="logo" href="/home/login" style="border-bottom: 0px; opacity: 0;"><img src="./assets/css/images/lock-solid.svg" style="height: 30px; margin-top: 5%;"/></a>
-					</header>
-
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a (click)="scrollToSection('improve')" class="active">{{'Improve' | translate}}</a></li>
-							<li><a (click)="scrollToSection('control')">{{'Control' | translate}}</a></li>
-							<li><a (click)="scrollToSection('customers')">{{'Our customers' | translate}}</a></li>
-							<li><a (click)="scrollToSection('aboutus')">{{'About us' | translate}}</a></li>
-						</ul>
-					</nav>
-
-				<!-- Main -->
-					<div id="main" #mainContent>
-						<!-- Introduction -->
-							<section id="improve" class="main">
-								<div class="spotlight">
-									<div class="content">
-										<header class="major">
-											<h2>{{'Improve your Google ratings' | translate}}</h2>
-										</header>
-										<p>{{'Increase your value-creating Google reviews. Win more customers with positive reviews and get direct feedback from your customers. Omnisensa filters your reviews before it\'s too late.' | translate}}</p>
-										<ul class="actions">
-											<li><a href="/home/login" class="button">{{'Try it' | translate}}</a></li>
-										</ul>
-									</div>
-									<span class="image"><img src="./assets/css/images/pic01.png" alt="" /></span>
-								</div>
-							</section>
-
-						<!-- First Section -->
-							<section id="control" class="main special">
-								<header class="major">
-									<h2>{{'Products & Service' | translate}}</h2>
-								</header>
-								<ul class="features">
-									<li>
-										<span class="icon solid major style1 fa-code"></span>
-										<h3><b>Omnisensa</b></h3>
-                                        <h5><u>{{'Your feedback IT solution' | translate}}</u></h5>
-										<p>{{'Filter and boost your Google reviews to attract more customers.' | translate}}</p>
-									</li>
-									<li>
-										<span class="icon major style3 fa-copy"></span>
-										<h3><b>Feedback management</b></h3>
-                                        <h5><u>{{'Your Feedback Management Team' | translate}}</u></h5>
-										<p>{{'For more customer loyalty, manage your public reviews on all platforms.' | translate}}</p>
-									</li>
-								</ul>
-								
-							</section>
-
-						<!-- Second Section -->
-							<section id="customers" class="main special">
-								<header class="major">
-									<h2>{{'What our customers say about us' | translate}}</h2>
-								</header>
-								<ul class="features">
-									<li>
-                                        <div style="height: 100%;">
-                                            <img src="./assets/css/images/mabe.png" alt="mabe" style="height: 20%;" />
-                                            <h3 style="height: 50%; display: flex; align-items: center; justify-content: center;">{{'Since implementing Omnisensa, we have received significantly more Google reviews, which has helped attract new customers to our café. What I appreciate most about working with Omnisensa was their sincere commitment to customizing the solution to our concept!' | translate}}
-                                                </h3>
-                                            <footer class="major" style="height: 10%;">
-                                                Eren<br/>Cafe MaBe
-                                            </footer>
-                                        </div>
-										
-									</li>
-									<li>
-                                        <div style="height: 100%;">
-                                            <img src="./assets/css/images/kono.png" alt="kono" style="height: 20%;" />
-                                            <h3 style="height: 50%; display: flex; align-items: center; justify-content: center;">{{'With Omnisensa, we were finally able to offer our guests a platform to give personal feedback. Thus, we continued to optimize the experience and satisfaction for our guests. Omnisensa not only customized the solution to my wishes, but also gave us honest advice on potential improvements.' | translate}}
-                                                </h3>
-                                            <footer class="major" style="height: 10%;">
-                                                Stevan Hoang<br/>Korean Steakhouse
-                                            </footer>
-                                        </div>
-										
-									</li>
-								</ul>
-                                
-							</section>
-
-						<!-- Get Started -->
-							<section id="aboutus" class="main special">
-								<header class="major">
-									<h2>{{'A little bit about us' | translate}}</h2>
-									<p>{{'We strive for "Improvement by Connecting" connection. Our mission is to improve our customers\' business by providing them with direct feedback from their own customers.' | translate}}</p>
-								</header>
-                                <ul class="features">
-									<li>
-										<span class="image"><img src="./assets/css/images/an.png" alt="An" /></span>
-										<h2><b>An Do</b></h2>
-                                        <p>Co-CEO</p>
-									</li>
-									<li>
-										<span class="image"><img src="./assets/css/images/ricardo.png" alt="Ricardo" /></span>
-										<h2><b>Ricardo da-Silva</b></h2>
-                                        <p>Co-CEO</p>
-									</li>
-								</ul>
-								<footer class="major">
-									<ul class="actions special">
-										<li><a (click)="scrollToSection('header')" class="button primary">↑</a></li>
-									</ul>
-								</footer>
-							</section>
-                        
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						
-						<section>
-							<h2>Omnisensa</h2>
-							<dl class="alt">
-								<dt>{{'Address' | translate}}</dt>
-								<dd>Munich</dd>
-								<dt>{{'Phone' | translate}}</dt>
-								<dd><a href="tel:+49 176 56713005">+49 176 56713005</a></dd>
-								<dt>Email</dt>
-								<dd><a href="mailto:omnisensa@gmail.com">omnisensa@gmail.com</a></dd>
-							</dl>
-							<ul class="icons">
-								<li><a href="#" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon brands fa-dribbble alt"><span class="label">Dribbble</span></a></li>
-							</ul>
-						</section>
-					</footer>
-
+	<!-- Wrapper -->
+		<div id="wrapper">
+			<div style="float: right; width: 90px; margin-top: 4%; margin-left: 2%;">
+				<select id="mySelect" (change)="switchLanguage()" [(ngModel)]="selectedLanguage">
+					<option value="en">🇺🇸</option>
+					<option value="de" [selected]="selectedLanguage === 'de'">🇩🇪</option>
+					<option value="fr" [selected]="selectedLanguage === 'fr'">🇫🇷</option>
+				  </select>
 			</div>
-
+			
+			
+			
+			<!-- Header -->
+				<header id="header" class="alt">
 		
+					<span class="logo" style="opacity: 0;"><img src="./assets/css/images/meinelogo.png" alt="Logo" style="width: 50%;" /></span>
+					<h4 class="logo" style="opacity: 0;"><b>{{'Take control of your ratings' | translate}}</b></h4>
+					<a class="logo" href="/home/login" style="border-bottom: 0px; opacity: 0;"><img src="./assets/css/images/lock-solid.svg" style="height: 30px; margin-top: 5%;"/></a>
+				</header>
 
-	</body>
+			<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a (click)="scrollToSection('improve')" class="active">{{'Improve' | translate}}</a></li>
+						<li><a (click)="scrollToSection('control')">{{'Control' | translate}}</a></li>
+						<li><a (click)="scrollToSection('customers')">{{'Our customers' | translate}}</a></li>
+						<li><a (click)="scrollToSection('aboutus')">{{'About us' | translate}}</a></li>
+					</ul>
+				</nav>
 
+			<!-- Main -->
+				<div id="main" #mainContent>
+					<!-- Introduction -->
+						<section id="improve" class="main">
+							<div class="spotlight">
+								<div class="content">
+									<header class="major">
+										<h2>{{'Improve your Google ratings' | translate}}</h2>
+									</header>
+									<p>{{'Increase your value-creating Google reviews. Win more customers with positive reviews and get direct feedback from your customers. Omnisensa filters your reviews before it\'s too late.' | translate}}</p>
+									<ul class="actions">
+										<li><a href="/home/login" class="button">{{'Try it' | translate}}</a></li>
+									</ul>
+								</div>
+								<span class="image"><img src="./assets/css/images/pic01.png" alt="" /></span>
+							</div>
+						</section>
+
+					<!-- First Section -->
+						<section id="control" class="main special">
+							<header class="major">
+								<h2>{{'Products & Service' | translate}}</h2>
+							</header>
+							<ul class="features">
+								<li>
+									<span class="icon solid major style1 fa-code"></span>
+									<h3><b>Omnisensa</b></h3>
+									<h5><u>{{'Your feedback IT solution' | translate}}</u></h5>
+									<p>{{'Filter and boost your Google reviews to attract more customers.' | translate}}</p>
+								</li>
+								<li>
+									<span class="icon major style3 fa-copy"></span>
+									<h3><b>Feedback management</b></h3>
+									<h5><u>{{'Your Feedback Management Team' | translate}}</u></h5>
+									<p>{{'For more customer loyalty, manage your public reviews on all platforms.' | translate}}</p>
+								</li>
+							</ul>
+							
+						</section>
+
+					<!-- Second Section -->
+						<section id="customers" class="main special">
+							<header class="major">
+								<h2>{{'What our customers say about us' | translate}}</h2>
+							</header>
+							<ul class="features">
+								<li>
+									<div style="height: 100%;">
+										<img src="./assets/css/images/mabe.png" alt="mabe" style="height: 20%;" />
+										<h3 style="height: 50%; display: flex; align-items: center; justify-content: center;">{{'Since implementing Omnisensa, we have received significantly more Google reviews, which has helped attract new customers to our café. What I appreciate most about working with Omnisensa was their sincere commitment to customizing the solution to our concept!' | translate}}
+											</h3>
+										<footer class="major" style="height: 10%;">
+											Eren<br/>Cafe MaBe
+										</footer>
+									</div>
+									
+								</li>
+								<li>
+									<div style="height: 100%;">
+										<img src="./assets/css/images/kono.png" alt="kono" style="height: 20%;" />
+										<h3 style="height: 50%; display: flex; align-items: center; justify-content: center;">{{'With Omnisensa, we were finally able to offer our guests a platform to give personal feedback. Thus, we continued to optimize the experience and satisfaction for our guests. Omnisensa not only customized the solution to my wishes, but also gave us honest advice on potential improvements.' | translate}}
+											</h3>
+										<footer class="major" style="height: 10%;">
+											Stevan Hoang<br/>Korean Steakhouse
+										</footer>
+									</div>
+									
+								</li>
+							</ul>
+							
+						</section>
+
+					<!-- Get Started -->
+						<section id="aboutus" class="main special">
+							<header class="major">
+								<h2>{{'A little bit about us' | translate}}</h2>
+								<p>{{'We strive for "Improvement by Connecting" connection. Our mission is to improve our customers\' business by providing them with direct feedback from their own customers.' | translate}}</p>
+							</header>
+							<ul class="features">
+								<li>
+									<span class="image"><img src="./assets/css/images/an.png" alt="An" /></span>
+									<h2><b>An Do</b></h2>
+									<p>Co-CEO</p>
+								</li>
+								<li>
+									<span class="image"><img src="./assets/css/images/ricardo.png" alt="Ricardo" /></span>
+									<h2><b>Ricardo da-Silva</b></h2>
+									<p>Co-CEO</p>
+								</li>
+							</ul>
+							<footer class="major">
+								<ul class="actions special">
+									<li><a (click)="scrollToSection('header')" class="button primary">↑</a></li>
+								</ul>
+							</footer>
+						</section>
+					
+
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					
+					<section>
+						<h2>Omnisensa</h2>
+						<dl class="alt">
+							<dt>{{'Address' | translate}}</dt>
+							<dd>Munich</dd>
+							<dt>{{'Phone' | translate}}</dt>
+							<dd><a href="tel:+49 176 56713005">+49 176 56713005</a></dd>
+							<dt>Email</dt>
+							<dd><a href="mailto:omnisensa@gmail.com">omnisensa@gmail.com</a></dd>
+						</dl>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+							<li><a href="#" class="icon brands fa-dribbble alt"><span class="label">Dribbble</span></a></li>
+						</ul>
+					</section>
+				</footer>
+
+		</div>
+
+	
+
+</body>

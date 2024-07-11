@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "allowJs": true,
     "resolveJsonModule": true,
     "esModuleInterop": true, 
     "outDir": "./dist/out-tsc",
